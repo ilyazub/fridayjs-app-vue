@@ -6,7 +6,7 @@
         <ol class="topics">
             <li v-for="topic in topics">
                 <figure>
-                    <img src="https://scontent.fiev13-1.fna.fbcdn.net/v/t31.0-8/20863703_493288284342203_5842571835156030175_o.jpg?_nc_cat=0&oh=3ced930ebd9fbbfec4dfc1f8eb79fdd2&oe=5C003297"
+                    <img :src="bigPhoto"
                          alt="Проектирование React Native приложения">
                     <figcaption>{{ topic.title }}</figcaption>
                 </figure>
@@ -25,27 +25,35 @@
             </li>
         </ol>
 
-        <hr>
-
-        <section class="bigPhoto">
-            <router-link to="{ name: 'Photos' }">
-                <img src="https://scontent.fiev13-1.fna.fbcdn.net/v/t31.0-8/20863703_493288284342203_5842571835156030175_o.jpg?_nc_cat=0&oh=3ced930ebd9fbbfec4dfc1f8eb79fdd2&oe=5C003297"
-                     :alt="bigPhotoTitle">
-            </router-link>
-            <a href="#/events/1/photos" class="photo">
-
-            </a>
-        </section>
+        <div v-if="bigPhoto">
+            <hr>
+            <section class="bigPhoto">
+                <router-link :to="{ name: 'Photos', params: { id, photos, } }" class="photo">
+                    <img :src="bigPhoto"
+                         :alt="bigPhotoTitle">
+                </router-link>
+            </section>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 export default {
     props: [
+        'id',
         'title',
         'date',
-        'topics'
+        'topics',
+        'photos',
     ],
+    computed: {
+        bigPhoto() {
+            return this.photos[0];
+        },
+        bigPhotoTitle() {
+            return `View photos of ${this.title}`;
+        },
+    },
 }
 </script>
 

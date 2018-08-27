@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import Home from './pages/Home.vue';
 import Event from './pages/Event.vue';
+import Photos from './pages/Photos.vue';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,12 @@ const router = new VueRouter({
             name: 'Event',
             path: '/events/:id',
             component: Event,
+            props: true,
+        },
+        {
+            name: 'Photos',
+            path: '/events/:id/photos',
+            component: Photos,
             props: true,
         }
     ],
