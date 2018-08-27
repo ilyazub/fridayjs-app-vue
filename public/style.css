@@ -33,9 +33,22 @@
 /* Main Page end */
 
 /* Event page */
+.topics > li {
+  display: block;
+  margin: 50px 0;
+}
+
+.topics figure {
+  margin: 0;
+}
+
 .topics img {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
+}
+
+.topics section {
+  margin: 10px 0;
 }
 
 .bigPhoto {
