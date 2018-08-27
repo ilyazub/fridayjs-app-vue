@@ -7,7 +7,8 @@
     "serve": "ts-node $(npm bin)/webpack-serve"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^10.9.2",
