@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -18,6 +19,7 @@ const router = new VueRouter({
             name: 'Event',
             path: '/events/:id',
             component: Event,
+            props: true,
         }
     ],
 });

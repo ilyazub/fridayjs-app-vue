@@ -1,11 +1,13 @@
 <template>
-    <ol class="events">
-        <li class="event" v-for="event in events">
-            <router-link :to="{ name: 'Event', params: { id: event.id } }">
-                <span>{{ event.title }}</span>&nbsp;at&nbsp;<span>{{ event.date }}</span>
-            </router-link>
-        </li>
-    </ol>
+    <div>
+        <ol class="events">
+            <li class="event" v-for="event in events">
+                <router-link :to="{ name: 'Event', params: event }">
+                    <span>{{ event.title }}</span>&nbsp;at&nbsp;<span>{{ event.date }}</span>
+                </router-link>
+            </li>
+        </ol>
+    </div>
 </template>
 
 <script lang="ts">
