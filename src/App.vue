@@ -3,7 +3,7 @@
         <nav>
             <header class="header">
                 <a href="/">
-                    <!--<img src="fridayjs.png">-->
+                    <img src="~@/fridayjs.png">
                 </a>
             </header>
         </nav>

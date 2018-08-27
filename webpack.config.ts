@@ -16,6 +16,7 @@ const config: webpack.Configuration = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
+            '@': src,
         },
     },
     module: {
@@ -31,6 +32,13 @@ const config: webpack.Configuration = {
                     'css-loader'
                 ]
             },
+            {
+                test: /\.png$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                },
+            }
         ],
     },
     plugins: [
