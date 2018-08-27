@@ -8,18 +8,22 @@
             </header>
         </nav>
 
-        <router-view/>
+        <router-view :events="events"/>
     </div>
 </template>
 
 <script lang="ts">
+    import events from './fridayjs.json';
+
     export default {
-        created() {
-            console.log('Created')
+        data() {
+            return {
+                events: [],
+            }
         },
-        mounted() {
-            console.log('Mounted')
-        }
+        created() {
+            this.events = events;
+        },
     }
 </script>
 

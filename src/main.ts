@@ -15,6 +15,7 @@ const router = new VueRouter({
             component: Home,
         },
         {
+            name: 'Event',
             path: '/events/:id',
             component: Event,
         }
