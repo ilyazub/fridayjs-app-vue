@@ -27,19 +27,20 @@
       </li>
     </ol>
 
-    <div v-if="bigPhoto">
-      <hr>
-      <section class="bigPhoto">
-        <router-link :to="{ name: 'Photos', params: { id, photos, } }" class="photo">
-          <img :src="bigPhoto" :alt="bigPhotoTitle">
-        </router-link>
-      </section>
+    <div v-if="hasPhotos" class="photos">
+      <h4>
+        Фото из {{ title }}
+      </h4>
+      <photos :photos="photos"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import Photos from "./Photos.vue";
+
   export default {
+    components: {Photos},
     props: [
       'id',
       'title',
@@ -51,9 +52,9 @@
       bigPhoto() {
         return this.photos[0];
       },
-      bigPhotoTitle() {
-        return `View photos of ${this.title}`;
-      },
+      hasPhotos() {
+        return this.photos.length > 0;
+      }
     },
   }
 </script>
@@ -87,18 +88,7 @@
     margin: 10px 0;
   }
 
-  .bigPhoto {
-    display: flex;
-    justify-content: center;
-  }
-
-  .photo {
-    width: 50%;
-    height: 50%;
-  }
-
-  .photo img {
-    max-width: 100%;
-    max-height: 100%;
+  .photos {
+    text-align: center;
   }
 </style>

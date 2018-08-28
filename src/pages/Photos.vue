@@ -1,7 +1,7 @@
 <template>
     <ul class="photos">
         <li v-for="photo in photos">
-            <img :src="photo" :alt="photo" @click="showImage(photo)">
+            <img :src="photo" :alt="photo" @click="showImage(photo)" class="image">
         </li>
     </ul>
 </template>
@@ -26,11 +26,11 @@
 }
 .photos li {
     display: inline-block;
-    width: 400px;
+    height: 200px;
     margin: 0 10px 20px;
 }
 
-.photos li img {
+.image {
     max-width: 100%;
     max-height: 100%;
 }
