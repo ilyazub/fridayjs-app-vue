@@ -1,41 +1,42 @@
 <template>
-    <div id="app">
-        <nav>
-            <header class="header">
-                <router-link to="/">
-                    <img src="~@/fridayjs.png">
-                </router-link>
-            </header>
-        </nav>
+  <div id="app">
+    <nav class="header flex">
+      <header class="container">
+        <router-link to="/">
+          <img src="~@/fridayjs.png" class="logo">
+        </router-link>
+      </header>
+    </nav>
 
-        <router-view :events="events"/>
-    </div>
+    <router-view :events="events"/>
+  </div>
 </template>
 
 <script lang="ts">
-    import events from './fridayjs.json';
+  import events from './fridayjs.json';
 
-    export default {
-        data() {
-            return {
-                events: [],
-            }
-        },
-        created() {
-            this.events = events;
-        },
-    }
+  export default {
+    data() {
+      return {
+        events: [],
+      }
+    },
+    created() {
+      this.events = events;
+    },
+  }
 </script>
 
-<style scoped>
-    .header {
-        height: 100px;
-    }
+<style src="./main.css"></style>
 
-    .header img {
-        width: 220px;
-        height: 100px;
-    }
+<style scoped>
+  .header {
+    height: 60px;
+  }
+
+  .logo {
+    height: 100%;
+  }
 </style>
 
 

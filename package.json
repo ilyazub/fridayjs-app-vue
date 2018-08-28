@@ -8,6 +8,7 @@
     "serve": "ts-node $(npm bin)/webpack-serve"
   },
   "dependencies": {
+    "normalize.css": "^8.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },

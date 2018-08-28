@@ -1,3 +1,4 @@
+import 'normalize.css';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
@@ -10,30 +11,30 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            component: Home,
-        },
-        {
-            name: 'Event',
-            path: '/events/:id',
-            component: Event,
-            props: true,
-        },
-        {
-            name: 'Photos',
-            path: '/events/:id/photos',
-            component: Photos,
-            props: true,
-        }
-    ],
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      component: Home,
+    },
+    {
+      name: 'Event',
+      path: '/events/:id',
+      component: Event,
+      props: true,
+    },
+    {
+      name: 'Photos',
+      path: '/events/:id/photos',
+      component: Photos,
+      props: true,
+    }
+  ],
 });
 
 new Vue({
-    el: '#app',
-    template: '<App/>',
-    router,
-    components: { App }
+  el: '#app',
+  template: '<App/>',
+  router,
+  components: {App}
 });
