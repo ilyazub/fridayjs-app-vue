@@ -7,7 +7,7 @@
     <ol class="topics">
       <li v-for="topic in topics" class="topic-wrap">
         <figure class="topic">
-          <img :src="bigPhoto" alt="Проектирование React Native приложения" class="topic-photo">
+          <img :src="topic.photo" alt="Проектирование React Native приложения" class="topic-photo">
           <figcaption class="topic-info">
             <h4>{{ topic.title }}</h4>
 
@@ -48,13 +48,7 @@
       'topics',
       'photos',
     ],
-    created() {
-      console.log(this.$route)
-    },
     computed: {
-      bigPhoto() {
-        return this.photos[0];
-      },
       hasPhotos() {
         return this.photos.length > 0;
       },

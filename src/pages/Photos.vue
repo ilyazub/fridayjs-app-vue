@@ -51,6 +51,8 @@
     max-height: 100%;
     opacity: 1;
 
+    cursor: pointer;
+
     transform: opacity 250ms;
   }
 
