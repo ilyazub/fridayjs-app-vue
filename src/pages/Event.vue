@@ -16,8 +16,10 @@
 
           <div class="col-12">
             <div v-for="topic in topics" class="row" :key="topic.id">
-              <div class="d-sm-none d-md-block col-12 col-sm-6 col-md-4 mb-4">
-                <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
+              <div class="d-sm-none d-md-block">
+                <div style="width: 125px; height: 125px;" class="col-12 col-sm-6 col-md-4 mb-4">
+                  <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
+                </div>
               </div>
               <div class="col-12 col-sm-8 col-md-6 mb-6">
                 <div class="topic-info">
@@ -27,8 +29,11 @@
                     <span>Докладчики:</span>&nbsp;<span>{{ topic.speaker }}</span>
                   </section>
 
-                  <section>
-                    <a v-if="topic.slides" :href="topic.slides">Слайды</a>&nbsp;&middot;&nbsp;<a v-if="topic.video" :href="topic.video">Видео</a>
+                  <section v-if="showLinks(topic)">
+                    <span v-if="topic.slides">
+                      <a :href="topic.slides" target="_blank">Слайды</a>&nbsp;&middot;
+                    </span>
+                    <a v-if="topic.video" :href="topic.video" target="_blank">Видео</a>
                   </section>
                 </div>
               </div>
@@ -65,7 +70,12 @@
       },
       event() {
         return this.data
-      }
+      },
+    },
+    methods: {
+      showLinks(topic) {
+        return topic.slides || topic.video;
+      },
     },
   }
 </script>
