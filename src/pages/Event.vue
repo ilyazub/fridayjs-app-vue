@@ -27,11 +27,11 @@
       </li>
     </ol>
 
-    <div v-if="hasPhotos" class="photos">
+    <div v-if="hasPhotos" class="photos" >
       <h4>
         Фото из {{ title }}
       </h4>
-      <photos :photos="photos"/>
+      <photos :photos="photos" :event="event" />
     </div>
   </div>
 </template>
@@ -48,12 +48,18 @@
       'topics',
       'photos',
     ],
+    created() {
+      console.log(this.$route)
+    },
     computed: {
       bigPhoto() {
         return this.photos[0];
       },
       hasPhotos() {
         return this.photos.length > 0;
+      },
+      event() {
+        return this.data
       }
     },
   }
