@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="header flex">
+    <nav class="header d-flex justify-content-between">
       <header class="container">
         <router-link to="/">
           <img src="~@/fridayjs.png" class="logo">

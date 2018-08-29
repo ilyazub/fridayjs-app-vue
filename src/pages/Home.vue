@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <h2 style="text-align: center;">
+  <div class="container-fluid">
+    <h2 class="text-center mb-3">
       Наши события
     </h2>
-    <ol class="events">
-      <li class="event" v-for="event in events">
-        <div class="flex">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="event in events" :key="event.id">
+        <div class="event-content w-100 h-100">
           <img :src='bgImg(event)' :alt='event.title' class='image'>
 
           <div class="info">
@@ -19,12 +19,12 @@
 
           <div class="show-more">
             <router-link :to="{ name: 'Event', params: event }" class="link">
-              Подробнее
+              <span class="h-100 w-100 d-flex align-items-center justify-content-center">Подробнее</span>
             </router-link>
           </div>
         </div>
-      </li>
-    </ol>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,22 +41,10 @@
   }
 </script>
 
-<style src="../main.css"></style>
 <style scoped>
-  .events {
-    display: flex;
-    width: 90%;
-    flex-wrap: wrap;
-  }
-
-  .event {
-    display: inline-block;
-    position: relative;
+  .event-content {
     cursor: pointer;
-    width: 240px;
-    margin: 0 10px 20px;
-
-    background: lightblue;
+    position: relative;
   }
 
   .image {
@@ -81,18 +69,8 @@
     font-size: 14px;
   }
 
-  .show-more {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
   .show-more > .link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: rgba(250, 216, 73, 0.9);
+    background-color: rgba(250,216,73, 0.9);
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
     position: absolute;
