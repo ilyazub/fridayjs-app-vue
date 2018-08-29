@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
-    <h2 class="text-center mb-3">
+    <h3 class="text-center mb-3">
       Наши события
-    </h2>
+    </h3>
     <div class="row">
       <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="event in events" :key="event.id">
         <div class="square event-content w-100 h-100" :style="{ backgroundImage: 'url(' + bgImg(event) + ')' }">

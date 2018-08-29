@@ -2,10 +2,10 @@
   <div class="event container">
     <div class="row">
       <div class="col-12 mb-3">
-        <h2>{{ title }}</h2>
+        <h3>{{ title }}</h3>
       </div>
       <div class="col-12 mb-3">
-        <h3>{{ date }}</h3>
+        <h4>{{ date }}</h4>
       </div>
 
       <div class="col-12 mb-3">
@@ -16,19 +16,17 @@
             <div class="col-12 col-sm-6 col-md-4 mb-4">
               <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-              <div>
-                <div class="topic-info">
-                  <h4>{{ topic.title }}</h4>
+            <div class="col-12 col-sm-8 col-md-6 mb-6">
+              <div class="topic-info">
+                <h5 class="">{{ topic.title }}</h5>
 
-                  <section>
-                    <span>Докладчики:</span>&nbsp;<span>{{ topic.speaker }}</span>
-                  </section>
+                <section>
+                  <span>Докладчики:</span>&nbsp;<span>{{ topic.speaker }}</span>
+                </section>
 
-                  <section>
-                    <a v-if="topic.slides" :href="topic.slides">Слайды</a>&nbsp;&middot;&nbsp;<a v-if="topic.video" :href="topic.video">Видео</a>
-                  </section>
-                </div>
+                <section>
+                  <a v-if="topic.slides" :href="topic.slides">Слайды</a>&nbsp;&middot;&nbsp;<a v-if="topic.video" :href="topic.video">Видео</a>
+                </section>
               </div>
             </div>
           </div>
@@ -69,15 +67,6 @@
 </script>
 
 <style scoped>
-  .topic-info {
-    margin-left: 20px;
-  }
-
-  .topic-photo {
-    width: 300px;
-    height: 200px;
-  }
-
   .info section {
     margin: 10px 0;
   }
