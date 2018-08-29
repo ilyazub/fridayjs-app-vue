@@ -1,10 +1,10 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(photo, index) in photos" :key="index">
-        <img :src="photo" :alt="index" class="image" @click="onImageClick(photo)">
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="(photo, index) in photos" :key="index">
+        <div class="square image" :style="{ backgroundImage: 'url(' + photo + ')' }" @click="onImageClick(photo)"></div>
+      </div>
+    </div>
 
     <BigPhoto v-if="selectedPhoto" :photo="selectedPhoto" @modalClose="onModalClose" />
   </div>
@@ -40,15 +40,7 @@
 </script>
 
 <style scoped>
-  .photos li {
-    display: inline-block;
-    height: 200px;
-    margin: 0 10px 20px;
-  }
-
   .image {
-    max-width: 100%;
-    max-height: 100%;
     opacity: 1;
 
     cursor: pointer;
