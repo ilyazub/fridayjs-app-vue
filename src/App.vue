@@ -27,7 +27,7 @@
   }
 </script>
 
-<style src="./main.css"></style>
+<style src="@/main.css"></style>
 
 <style scoped>
   .header {
