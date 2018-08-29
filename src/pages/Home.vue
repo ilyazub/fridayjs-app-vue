@@ -6,8 +6,6 @@
     <div class="row">
       <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="event in events" :key="event.id">
         <div class="square event-content w-100 h-100" :style="{ backgroundImage: 'url(' + bgImg(event) + ')' }">
-          <!--<img :src='bgImg(event)' :alt='event.title' class='image'>-->
-
           <div class="info">
             <div class="title">
               {{ event.title }}
