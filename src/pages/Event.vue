@@ -11,22 +11,26 @@
       <div class="col-12 mb-3">
         <div class="mb-3">Темы:</div>
 
-        <div>
-          <div v-for="topic in topics" class="row" :key="topic.id">
-            <div class="d-sm-none d-md-block col-12 col-sm-6 col-md-4 mb-4">
-              <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
-            </div>
-            <div class="col-12 col-sm-8 col-md-6 mb-6">
-              <div class="topic-info">
-                <h5 class="">{{ topic.title }}</h5>
+        <div class="row">
+          <div style="border: 1px solid yellow;height: 100%;position: absolute;" class="h-100 d-none d-sm-block d-md-none"></div>
 
-                <section>
-                  <span>Докладчики:</span>&nbsp;<span>{{ topic.speaker }}</span>
-                </section>
+          <div class="col-12">
+            <div v-for="topic in topics" class="row" :key="topic.id">
+              <div class="d-sm-none d-md-block col-12 col-sm-6 col-md-4 mb-4">
+                <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
+              </div>
+              <div class="col-12 col-sm-8 col-md-6 mb-6">
+                <div class="topic-info">
+                  <h5 class="">{{ topic.title }}</h5>
 
-                <section>
-                  <a v-if="topic.slides" :href="topic.slides">Слайды</a>&nbsp;&middot;&nbsp;<a v-if="topic.video" :href="topic.video">Видео</a>
-                </section>
+                  <section>
+                    <span>Докладчики:</span>&nbsp;<span>{{ topic.speaker }}</span>
+                  </section>
+
+                  <section>
+                    <a v-if="topic.slides" :href="topic.slides">Слайды</a>&nbsp;&middot;&nbsp;<a v-if="topic.video" :href="topic.video">Видео</a>
+                  </section>
+                </div>
               </div>
             </div>
           </div>
