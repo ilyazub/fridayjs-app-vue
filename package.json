@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run build",
+    "start": "yarn run build",
     "build": "wp --require ts-node/register",
     "serve": "ts-node $(npm bin)/webpack-serve"
   },

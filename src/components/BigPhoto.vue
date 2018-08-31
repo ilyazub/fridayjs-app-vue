@@ -1,12 +1,7 @@
 <template>
-  <div class="overlay">
-    <div class="content">
-      <span class="close" @click="$emit('modalClose')">&times;</span>
-
-      <div class="photo-container">
-        <img :src="photo" alt="" class="photo">
-      </div>
-    </div>
+  <div class="overlay" @click="$emit('modalClose')">
+    <div class="square image" :style="{ backgroundImage: 'url(' + photo + ')' }" @click="onImageClick(photo)"></div>
+    <div class="close" @click="$emit('modalClose')">&times;</div>
   </div>
 </template>
 
@@ -20,46 +15,40 @@
 
 <style scoped>
   .overlay {
-    display: block;
     position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
   }
 
-  .content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    max-width: 600px;
-  }
-
-  .photo-container {
-  }
-
-  .photo {
-    width: 100%;
-    height: 100%;
+  .image {
+    width: 90%;
+    height: 90%;
+    cursor: default;
+    position: relative;
+    background-size: cover;
+    background-position: center;
   }
 
   .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 3rem;
+    display: flex;
+    color: #fff;
+    opacity: 0.5;
+    transition: all .15s ease-in-out;
   }
 
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  .close:hover {
+    opacity: 1;
   }
 </style>
