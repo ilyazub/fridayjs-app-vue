@@ -12,14 +12,13 @@
         <div class="mb-3">Темы:</div>
 
         <div class="row">
-          <div style="border: 1px solid yellow;height: 100%;position: absolute;" class="h-100 d-none d-sm-block d-md-none"></div>
+          <div style="border: 1px solid yellow;height: 100%;position: absolute;"
+               class="h-100 d-none d-sm-block d-md-none"></div>
 
           <div class="col-12">
             <div v-for="topic in topics" class="row" :key="topic.id">
-              <div class="d-sm-none d-md-block">
-                <div style="width: 125px; height: 125px;" class="col-12 col-sm-6 col-md-4 mb-4">
-                  <div class="square" :style="{ backgroundImage: 'url(' + topic.speakerPhoto + ')' }"></div>
-                </div>
+              <div class="image-container d-none d-sm-block">
+                <div class="image square" :style="{ backgroundImage: 'url(' + topic.speakerPhoto + ')' }"></div>
               </div>
               <div class="col-12 col-sm-8 col-md-6 mb-6">
                 <div class="topic-info">
@@ -43,11 +42,11 @@
       </div>
     </div>
 
-    <div v-if="hasPhotos" class="photos" >
+    <div v-if="hasPhotos" class="photos">
       <h4>
         Фото:
       </h4>
-      <photos :photos="photos" :event="event" />
+      <photos :photos="photos" :event="event"/>
     </div>
   </div>
 </template>
@@ -81,6 +80,20 @@
 </script>
 
 <style scoped>
+  .image-container {
+    width: 125px;
+    height: 125px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    background-color: #efefef;
+  }
+
+  .image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
   .info section {
     margin: 10px 0;
   }

@@ -1,1 +1,6 @@
-{}
+{
+  "alias": "fridayjs-app-vue",
+  "static": {
+    "public": "/public"
+  }
+}

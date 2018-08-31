@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "serve --single ./public",
+    "now-start": "echo 'Done'",
     "build": "wp --require ts-node/register",
     "dev": "ts-node $(npm bin)/webpack-serve"
   },
