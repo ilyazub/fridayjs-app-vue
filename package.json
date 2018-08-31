@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "start": "serve --single ./public",
-    "prestart": "yarn run build",
     "build": "wp --require ts-node/register",
-    "serve": "ts-node $(npm bin)/webpack-serve"
+    "dev": "ts-node $(npm bin)/webpack-serve"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

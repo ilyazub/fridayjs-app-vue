@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="(photo, index) in photos" :key="index">
-        <div class="square image" :style="{ backgroundImage: 'url(' + photo + ')' }" @click="onImageClick(photo)"></div>
+      <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
+        <div class="square image" :style="{ backgroundImage: 'url(' + photo.link + ')' }" @click="onImageClick(photo)"></div>
       </div>
     </div>
 
-    <BigPhoto v-if="selectedPhoto" :photo="selectedPhoto" @modalClose="onModalClose" />
+    <BigPhoto v-if="selectedPhoto" :photo="selectedPhoto.link" @modalClose="onModalClose" />
   </div>
 </template>
 
@@ -17,12 +17,9 @@
     components: {
       BigPhoto,
     },
-    props: {
-      photos: {
-        type: Array,
-        required: true,
-      },
-    },
+    props: [
+      'photos',
+    ],
     data() {
       return {
         selectedPhoto: null,

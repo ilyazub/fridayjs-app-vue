@@ -3,7 +3,7 @@
     <nav class="header d-flex justify-content-between">
       <header class="container">
         <router-link to="/">
-          <img src="~@/fridayjs.png" class="logo">
+          <img src="~@/static/fridayjs.png" class="logo">
         </router-link>
       </header>
     </nav>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-  import events from './fridayjs.json';
+  import { getEvents } from '@/util/getEvents.ts';
 
   export default {
     data() {
@@ -22,12 +22,12 @@
       }
     },
     created() {
-      this.events = events;
+      this.events = getEvents();
     },
   }
 </script>
 
-<style src="@/main.css"></style>
+<style src="@/static/main.css"></style>
 
 <style scoped>
   .header {

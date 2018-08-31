@@ -18,7 +18,7 @@
             <div v-for="topic in topics" class="row" :key="topic.id">
               <div class="d-sm-none d-md-block">
                 <div style="width: 125px; height: 125px;" class="col-12 col-sm-6 col-md-4 mb-4">
-                  <div class="square" :style="{ backgroundImage: 'url(' + topic.photo + ')' }"></div>
+                  <div class="square" :style="{ backgroundImage: 'url(' + topic.speakerPhoto + ')' }"></div>
                 </div>
               </div>
               <div class="col-12 col-sm-8 col-md-6 mb-6">

@@ -32,7 +32,7 @@
     methods: {
       bgImg(event) {
         if (event.photos) {
-          return event.photos[0];
+          return event.photos[0].link;
         }
       }
     },
@@ -46,30 +46,27 @@
     background-size: cover;
   }
 
-  .image {
-    width: 100%;
-    height: 100%;
-  }
-
   .info {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 15px;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     text-shadow: 1px 1px 1px #000;
   }
+
   .title {
     font-size: 20px;
   }
+
   .date {
     font-size: 14px;
   }
 
   .show-more > .link {
-    background-color: rgba(250,216,73, 0.9);
+    background-color: rgba(250, 216, 73, 0.9);
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
     position: absolute;
