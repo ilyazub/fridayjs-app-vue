@@ -1,19 +1,22 @@
 <template>
   <div class="event">
     <div class="container">
-      <h2 class="title">{{ title }}</h2>
-      <div class="date">{{ date }}</div>
+      <h2 class="title">{{ event.title }}</h2>
+      <div class="date">{{ event.date }}</div>
       <h3 class="subtitle">Доклады:</h3>
 
-      <TopicsList :topics="topics"/>
+      <TopicsList :topics="event.topics"/>
 
       <h3 class="subtitle">Фото:</h3>
-      <PhotosList :photos="photos" :event="event"/>
+      <PhotosList :photos="event.photos" :event="event"/>
+
+      <router-view :photos="event.photos" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import {getEvent} from '@/lib/getEvents.ts';
   import PhotosList from "@/components/PhotosList.vue";
   import TopicsList from "@/components/TopicsList.vue";
 
@@ -24,18 +27,14 @@
     },
     props: [
       'id',
-      'title',
-      'date',
-      'topics',
-      'photos',
     ],
-    computed: {
-      hasPhotos() {
-        return this.photos.length > 0;
-      },
-      event() {
-        return this.data;
-      },
+    data() {
+      return {
+        event: null,
+      };
+    },
+    created() {
+      this.event = getEvent(this.id);
     },
   }
 </script>

@@ -6,7 +6,7 @@
       </h3>
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4" v-for="event in events" :key="event.id">
-          <router-link :to="{ name: 'Event', params: event }" class="event square">
+          <router-link :to="{ name: 'Event', params: { id: event.id } }" class="event square">
             <ImageContainer :src="bgImg(event)" />
 
             <div class="info">

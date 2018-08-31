@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import App from '@/App.vue';
 import Home from '@/pages/Home.vue';
 import Event from '@/pages/Event.vue';
+import BigPhoto from '@/components/BigPhoto.vue';
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,13 @@ const router = new VueRouter({
       path: '/events/:id',
       component: Event,
       props: true,
+      children: [
+        {
+          name: 'BigPhoto',
+          path: 'photos/:photoId',
+          component: BigPhoto,
+        }
+      ],
     },
   ],
 });

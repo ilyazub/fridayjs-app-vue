@@ -4,7 +4,7 @@
     <div class="wrapper" ref="wrapper">
       <button class="close" @click="close">&times;</button>
       <div class="block" ref="block">
-        <img :src="photo" alt="" class="image">
+        <img :src="photo.link" alt="" class="image">
       </div>
     </div>
   </div>
@@ -13,8 +13,16 @@
 <script lang="ts">
   export default {
     props: [
-      'photo',
+      'photos',
     ],
+    data() {
+      return {
+        photo: null,
+      }
+    },
+    created() {
+      this.photo = this.photos.find(photo => photo.id === parseInt(this.$route.params.photoId));
+    },
     methods: {
       close() {
         this.$router.go(-1);
@@ -46,13 +54,18 @@
   }
 </script>
 
+<style>
+  body.modal-shown {
+    overflow: hidden;
+  }
+</style>
+
 <style scoped>
   .image {
     width: 800px;
     max-width: 100%;
     height: auto;
   }
-
 
   .backdrop,
   .wrapper {

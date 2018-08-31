@@ -2,15 +2,13 @@
   <div class="photos">
     <div class="row">
       <div class="col-12 col-sm-6 col-md-4" v-for="photo in photos" :key="photo.id">
-        <div  @click="onImageClick(photo)" class="photo square">
+        <router-link :to="{ name: 'BigPhoto', params: { photoId: photo.id } }" class="photo square">
           <ImageContainer :src="photo.link" />
 
           <Overlay>Увеличить</Overlay>
-        </div>
+        </router-link>
       </div>
     </div>
-
-    <BigPhoto v-if="selectedPhoto" :photo="selectedPhoto.link" @modalClose="onModalClose" />
   </div>
 </template>
 
