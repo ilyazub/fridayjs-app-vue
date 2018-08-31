@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="photos">
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
-        <div class="square image" :style="{ backgroundImage: 'url(' + photo.link + ')' }" @click="onImageClick(photo)"></div>
+      <div class="col-12 col-sm-6 col-md-4" v-for="photo in photos" :key="photo.id">
+        <div :to="{ name: 'BigPhoto', params: { photoId: photo.id } }" @click="onImageClick(photo)" class="photo square">
+          <ImageContainer :src="photo.link" />
+          <Overlay>Увеличить</Overlay>
+        </div>
       </div>
     </div>
 
@@ -12,10 +15,14 @@
 
 <script lang="ts">
   import BigPhoto from '@/components/BigPhoto.vue';
+  import ImageContainer from '@/components/ImageContainer.vue';
+  import Overlay from '@/components/Overlay.vue';
 
   export default {
     components: {
       BigPhoto,
+      ImageContainer,
+      Overlay,
     },
     props: [
       'photos',
@@ -37,15 +44,9 @@
 </script>
 
 <style scoped>
-  .image {
-    opacity: 1;
-
-    cursor: pointer;
-
-    transform: opacity 250ms;
-  }
-
-  .image:hover {
-    opacity: 0.5;
+  .photo {
+    display: block;
+    margin-bottom: 1.5rem;
+    position: relative;
   }
 </style>
