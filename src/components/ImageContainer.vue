@@ -1,6 +1,6 @@
 <template>
   <div class="image-container square">
-    <div class="image square" :style="{ backgroundImage: 'url(' + src + ')' }"></div>
+    <div class="image square" ref="image"></div>
   </div>
 </template>
 
@@ -9,6 +9,17 @@
     props: [
       'src'
     ],
+    mounted() {
+      const src = this.src;
+      const image = new Image(src);
+
+      image.onload = () => {
+        this.$refs.image.style.backgroundImage = `url(${src})`;
+        this.$refs.image.style.opacity = 1;
+      };
+
+      image.src = src;
+    }
   }
 </script>
 
@@ -27,5 +38,8 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 250ms ease-out;
   }
 </style>
