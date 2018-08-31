@@ -13,6 +13,7 @@
               <div class="title">{{ event.title }}</div>
               <div class="date">{{ event.date }}</div>
             </div>
+
             <Overlay>Подробнее</Overlay>
           </router-link>
         </div>
