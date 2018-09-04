@@ -39,7 +39,12 @@ const config: webpack.Configuration = {
         options: {
           limit: 8192,
         },
-      }
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader'
+      },
     ],
   },
   optimization: {

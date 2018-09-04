@@ -1,0 +1,10 @@
+query AllEvents {
+  events {
+    id
+    title
+    date
+    photos {
+      link
+    }
+  }
+}

@@ -26,8 +26,7 @@
   import ImageContainer from "@/components/ImageContainer.vue";
   import Overlay from '@/components/Overlay.vue';
 
-  import gql from 'graphql-tag'
-  const EVENTS_QUERY = gql`query AllEvents { events { id photos { link } } }`;
+  import AllEvents from '@/queries/events.gql';
 
   export default {
     components: {
@@ -35,7 +34,7 @@
       Overlay,
     },
     apollo: {
-      events: EVENTS_QUERY,
+      events: AllEvents,
     },
     methods: {
       bgImg(event) {

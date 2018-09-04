@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 
-import Home from '@/pages/Home.vue';
+import EventsList from '@/components/EventsList.vue';
 import Event from '@/pages/Event.vue';
 import BigPhoto from '@/components/BigPhoto.vue';
 
@@ -9,7 +9,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: EventsList,
     },
     {
       name: 'Event',

@@ -8,6 +8,8 @@ const typeDefs = `
 
   type Event {
     id: Int!
+    title: String!
+    date: String!
     photos: [Photo!]
   }
   
