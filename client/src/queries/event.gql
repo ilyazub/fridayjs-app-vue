@@ -1,0 +1,20 @@
+query Event($id: Int!) {
+  event(id: $id) {
+    id
+    title
+    date
+
+    topics {
+      id
+      title
+      speaker
+      speakerPhoto
+      slides
+      video
+    }
+
+    photos {
+      link
+    }
+  }
+}

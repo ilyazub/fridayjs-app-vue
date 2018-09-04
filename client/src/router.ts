@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 
 import EventsList from '@/components/EventsList.vue';
-import Event from '@/pages/Event.vue';
+import EventItem from '@/components/EventItem.vue';
 import BigPhoto from '@/components/BigPhoto.vue';
 
 export default new VueRouter({
@@ -14,7 +14,7 @@ export default new VueRouter({
     {
       name: 'Event',
       path: '/events/:id',
-      component: Event,
+      component: EventItem,
       props: true,
       children: [
         {

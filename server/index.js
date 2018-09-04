@@ -1,6 +1,15 @@
 const { GraphQLServer } = require('graphql-yoga');
 
 const typeDefs = `
+  type Topic {
+    id: Int!
+    title: String!
+    speaker: String!
+    speakerPhoto: String
+    slides: String
+    video: String
+  }
+  
   type Photo {
     id: Int!
     link: String!
@@ -10,11 +19,13 @@ const typeDefs = `
     id: Int!
     title: String!
     date: String!
+    topics: [Topic!]
     photos: [Photo!]
   }
   
   type Query {
     events: [Event!]
+    event(id: Int!): Event
   }
   
   schema {
@@ -24,9 +35,13 @@ const typeDefs = `
 
 const { events } = require('./data/fridayjs.json');
 
+const getEvents = () => events;
+const getEvent = (eventId) => events.find(({ id }) => id === eventId);
+
 const resolvers = {
   Query: {
-    events: () => events,
+    events: () => getEvents(),
+    event: (_, { id }) => getEvent(id),
   },
 };
 

@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-  // import {getEvent} from '@/lib/getEvents.ts';
-  import PhotosList from "@/components/PhotosList.vue";
-  import TopicsList from "@/components/TopicsList.vue";
+  import { Event } from '@/queries/event.gql';
+  import PhotosList from '@/components/PhotosList.vue';
+  import TopicsList from '@/components/TopicsList.vue';
 
   export default {
     components: {
@@ -33,8 +33,15 @@
         event: null,
       };
     },
-    created() {
-      // this.event = getEvent(this.id);
+    apollo: {
+      event: {
+        query: Event,
+        variables() {
+          return {
+            id: this.id,
+          }
+        },
+      },
     },
   }
 </script>
