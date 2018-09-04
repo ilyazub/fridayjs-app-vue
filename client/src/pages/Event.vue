@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-  import {getEvent} from '@/lib/getEvents.ts';
+  // import {getEvent} from '@/lib/getEvents.ts';
   import PhotosList from "@/components/PhotosList.vue";
   import TopicsList from "@/components/TopicsList.vue";
 
@@ -34,7 +34,7 @@
       };
     },
     created() {
-      this.event = getEvent(this.id);
+      // this.event = getEvent(this.id);
     },
   }
 </script>

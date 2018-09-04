@@ -7,23 +7,13 @@
     </nav>
 
     <div class="app">
-      <router-view :events="events" />
+      <router-view />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import {getEvents} from '@/lib/getEvents.ts';
-
   export default {
-    data() {
-      return {
-        events: [],
-      }
-    },
-    created() {
-      this.events = getEvents();
-    },
   }
 </script>
 
